@@ -1,0 +1,252 @@
+[
+  {
+    "fullName": "Arjun Sharma",
+    "email": "arjun.sharma@example.com",
+    "password": "Password@123",
+    "phone": "9876543210",
+    "education": {
+      "degree": "B.Tech",
+      "stream": "Computer Science",
+      "college": "Delhi Technological University",
+      "graduationYear": 2024,
+      "percentage": 78.5
+    },
+    "skills": ["Python", "Machine Learning", "Data Analysis", "SQL", "Excel"],
+    "locationPreference": {
+      "state": "Delhi",
+      "city": "New Delhi",
+      "willingToRelocate": true
+    },
+    "sectorInterest": ["Technology", "Finance"],
+    "socialCategory": "General",
+    "districtType": "Urban",
+    "resumeUrl": "",
+    "parsedSkills": [],
+    "pastParticipation": false
+  },
+  {
+    "fullName": "Priya Meena",
+    "email": "priya.meena@example.com",
+    "password": "Password@123",
+    "phone": "9812345678",
+    "education": {
+      "degree": "B.Com",
+      "stream": "Accounting & Finance",
+      "college": "University of Rajasthan",
+      "graduationYear": 2024,
+      "percentage": 72.0
+    },
+    "skills": ["Tally", "Excel", "GST Filing", "Accounting"],
+    "locationPreference": {
+      "state": "Rajasthan",
+      "city": "Jaipur",
+      "willingToRelocate": false
+    },
+    "sectorInterest": ["Finance", "Consulting"],
+    "socialCategory": "OBC",
+    "districtType": "Urban",
+    "resumeUrl": "",
+    "parsedSkills": [],
+    "pastParticipation": false
+  },
+  {
+    "fullName": "Ravi Kumar",
+    "email": "ravi.kumar@example.com",
+    "password": "Password@123",
+    "phone": "9823456789",
+    "education": {
+      "degree": "B.Sc",
+      "stream": "Agriculture",
+      "college": "Banaras Hindu University",
+      "graduationYear": 2023,
+      "percentage": 68.4
+    },
+    "skills": ["Crop Management", "Soil Testing", "MS Office", "Field Survey"],
+    "locationPreference": {
+      "state": "Uttar Pradesh",
+      "city": "Varanasi",
+      "willingToRelocate": true
+    },
+    "sectorInterest": ["Agriculture", "Consulting"],
+    "socialCategory": "SC",
+    "districtType": "Rural",
+    "resumeUrl": "",
+    "parsedSkills": [],
+    "pastParticipation": false
+  },
+  {
+    "fullName": "Anjali Verma",
+    "email": "anjali.verma@example.com",
+    "password": "Password@123",
+    "phone": "9834567890",
+    "education": {
+      "degree": "MBA",
+      "stream": "Human Resources",
+      "college": "Symbiosis Institute of Business Management",
+      "graduationYear": 2024,
+      "percentage": 81.2
+    },
+    "skills": ["HR Management", "Recruitment", "MS Excel", "Communication", "HRMS"],
+    "locationPreference": {
+      "state": "Maharashtra",
+      "city": "Pune",
+      "willingToRelocate": true
+    },
+    "sectorInterest": ["Manufacturing", "Technology"],
+    "socialCategory": "General",
+    "districtType": "Urban",
+    "resumeUrl": "",
+    "parsedSkills": [],
+    "pastParticipation": true
+  },
+  {
+    "fullName": "Suresh Babu",
+    "email": "suresh.babu@example.com",
+    "password": "Password@123",
+    "phone": "9845678901",
+    "education": {
+      "degree": "Diploma",
+      "stream": "Mechanical Engineering",
+      "college": "Government Polytechnic Hyderabad",
+      "graduationYear": 2023,
+      "percentage": 65.0
+    },
+    "skills": ["AutoCAD", "Welding", "Machine Operation", "Quality Control"],
+    "locationPreference": {
+      "state": "Telangana",
+      "city": "Hyderabad",
+      "willingToRelocate": false
+    },
+    "sectorInterest": ["Manufacturing", "Infrastructure"],
+    "socialCategory": "ST",
+    "districtType": "Aspirational",
+    "resumeUrl": "",
+    "parsedSkills": [],
+    "pastParticipation": false
+  },
+  {
+    "fullName": "Neha Patel",
+    "email": "neha.patel@example.com",
+    "password": "Password@123",
+    "phone": "9856789012",
+    "education": {
+      "degree": "B.Tech",
+      "stream": "Electronics & Communication",
+      "college": "Gujarat Technological University",
+      "graduationYear": 2024,
+      "percentage": 74.8
+    },
+    "skills": ["Embedded Systems", "C++", "IoT", "Circuit Design", "Python"],
+    "locationPreference": {
+      "state": "Gujarat",
+      "city": "Ahmedabad",
+      "willingToRelocate": true
+    },
+    "sectorInterest": ["Technology", "Manufacturing"],
+    "socialCategory": "OBC",
+    "districtType": "Urban",
+    "resumeUrl": "",
+    "parsedSkills": [],
+    "pastParticipation": false
+  },
+  {
+    "fullName": "Mohammed Irfan",
+    "email": "mohammed.irfan@example.com",
+    "password": "Password@123",
+    "phone": "9867890123",
+    "education": {
+      "degree": "BA",
+      "stream": "Political Science",
+      "college": "Aligarh Muslim University",
+      "graduationYear": 2023,
+      "percentage": 70.5
+    },
+    "skills": ["Research", "Report Writing", "Public Policy", "MS Word", "Data Entry"],
+    "locationPreference": {
+      "state": "Uttar Pradesh",
+      "city": "Aligarh",
+      "willingToRelocate": true
+    },
+    "sectorInterest": ["Consulting", "Finance"],
+    "socialCategory": "OBC",
+    "districtType": "Aspirational",
+    "resumeUrl": "",
+    "parsedSkills": [],
+    "pastParticipation": false
+  },
+  {
+    "fullName": "Lakshmi Devi",
+    "email": "lakshmi.devi@example.com",
+    "password": "Password@123",
+    "phone": "9878901234",
+    "education": {
+      "degree": "B.Sc",
+      "stream": "Nursing",
+      "college": "Madras Medical College",
+      "graduationYear": 2024,
+      "percentage": 76.3
+    },
+    "skills": ["Patient Care", "First Aid", "Medical Records", "Communication"],
+    "locationPreference": {
+      "state": "Tamil Nadu",
+      "city": "Chennai",
+      "willingToRelocate": false
+    },
+    "sectorInterest": ["Healthcare", "Consulting"],
+    "socialCategory": "SC",
+    "districtType": "Urban",
+    "resumeUrl": "",
+    "parsedSkills": [],
+    "pastParticipation": false
+  },
+  {
+    "fullName": "Vikram Singh",
+    "email": "vikram.singh@example.com",
+    "password": "Password@123",
+    "phone": "9889012345",
+    "education": {
+      "degree": "B.Tech",
+      "stream": "Civil Engineering",
+      "college": "NIT Bhopal",
+      "graduationYear": 2023,
+      "percentage": 79.1
+    },
+    "skills": ["AutoCAD", "STAAD Pro", "Site Supervision", "MS Project", "Surveying"],
+    "locationPreference": {
+      "state": "Madhya Pradesh",
+      "city": "Bhopal",
+      "willingToRelocate": true
+    },
+    "sectorInterest": ["Infrastructure", "Consulting"],
+    "socialCategory": "General",
+    "districtType": "Urban",
+    "resumeUrl": "",
+    "parsedSkills": [],
+    "pastParticipation": true
+  },
+  {
+    "fullName": "Sunita Oraon",
+    "email": "sunita.oraon@example.com",
+    "password": "Password@123",
+    "phone": "9890123456",
+    "education": {
+      "degree": "BA",
+      "stream": "Sociology",
+      "college": "Ranchi University",
+      "graduationYear": 2024,
+      "percentage": 63.5
+    },
+    "skills": ["Community Outreach", "Data Entry", "Field Survey", "MS Office"],
+    "locationPreference": {
+      "state": "Jharkhand",
+      "city": "Ranchi",
+      "willingToRelocate": false
+    },
+    "sectorInterest": ["Consulting", "Agriculture"],
+    "socialCategory": "ST",
+    "districtType": "Rural",
+    "resumeUrl": "",
+    "parsedSkills": [],
+    "pastParticipation": false
+  }
+]

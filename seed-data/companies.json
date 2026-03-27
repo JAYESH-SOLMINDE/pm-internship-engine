@@ -1,0 +1,62 @@
+[
+  {
+    "companyName": "FinServe Capital Pvt Ltd",
+    "email": "hr@finservecapital.in",
+    "password": "password123",
+    "phone": "9876543210",
+    "sector": "Finance",
+    "state": "Maharashtra",
+    "city": "Mumbai",
+    "verified": true,
+    "website": "https://finservecapital.in",
+    "description": "A leading NBFC specialising in retail and MSME lending solutions."
+  },
+  {
+    "companyName": "TechNova Solutions",
+    "email": "careers@technova.io",
+    "password": "password123",
+    "phone": "9876500001",
+    "sector": "Technology",
+    "state": "Karnataka",
+    "city": "Bengaluru",
+    "verified": true,
+    "website": "https://technova.io",
+    "description": "Product-first SaaS company building enterprise data tools."
+  },
+  {
+    "companyName": "GreenAgro Industries",
+    "email": "jobs@greenagro.co.in",
+    "password": "password123",
+    "phone": "9812345678",
+    "sector": "Agriculture",
+    "state": "Punjab",
+    "city": "Ludhiana",
+    "verified": true,
+    "website": "https://greenagro.co.in",
+    "description": "Agri-tech company connecting farmers to modern supply chains."
+  },
+  {
+    "companyName": "Medlife Healthcare",
+    "email": "intern@medlifehc.com",
+    "password": "password123",
+    "phone": "9911223344",
+    "sector": "Healthcare",
+    "state": "Delhi",
+    "city": "New Delhi",
+    "verified": true,
+    "website": "https://medlifehc.com",
+    "description": "Multi-speciality hospital chain with a focus on accessible healthcare."
+  },
+  {
+    "companyName": "BuildBridge Infrastructure",
+    "email": "hr@buildbridge.in",
+    "password": "password123",
+    "phone": "9955667788",
+    "sector": "Infrastructure",
+    "state": "Uttar Pradesh",
+    "city": "Lucknow",
+    "verified": false,
+    "website": "https://buildbridge.in",
+    "description": "Civil and urban infrastructure firm working on Smart City projects."
+  }
+]

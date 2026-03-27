@@ -1,0 +1,143 @@
+/* PM Internship Scheme — Global Styles */
+/* Government-grade UI: Navy Blue + White + Saffron accents */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Variables ─────────────────────────────────────────────── */
+:root {
+  --color-primary:    #1d4ed8;  /* gov-600 */
+  --color-primary-dark: #1e3a8a;
+  --color-saffron:   #FF9933;
+  --color-ashoka:    #000080;
+  --color-success:   #16a34a;
+  --color-warning:   #d97706;
+  --color-error:     #dc2626;
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(29,78,216,0.06);
+}
+
+/* ─── Base ──────────────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  background-color: #f0f4ff;
+  color: #1e293b;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #93c5fd; border-radius: 3px; }
+
+/* ─── Component Utilities ───────────────────────────────────────── */
+@layer components {
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-blue-100 p-6;
+  }
+
+  /* Primary Buttons */
+  .btn-primary {
+    @apply bg-blue-700 hover:bg-blue-800 text-white font-semibold
+           px-6 py-2.5 rounded-lg transition-all duration-200
+           disabled:opacity-50 disabled:cursor-not-allowed
+           focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply border-2 border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white
+           font-semibold px-6 py-2.5 rounded-lg transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-blue-400;
+  }
+
+  .btn-ghost {
+    @apply text-blue-700 hover:bg-blue-50 font-medium px-4 py-2 rounded-lg
+           transition-all duration-150;
+  }
+
+  /* Form Inputs */
+  .form-input {
+    @apply w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm
+           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+           transition-all placeholder-gray-400 bg-white;
+  }
+
+  .form-label {
+    @apply block text-sm font-semibold text-gray-700 mb-1.5;
+  }
+
+  .form-error {
+    @apply text-red-500 text-xs mt-1;
+  }
+
+  /* Step Badge */
+  .step-badge {
+    @apply flex items-center justify-center w-9 h-9 rounded-full
+           text-sm font-bold border-2 transition-all;
+  }
+
+  /* Skill Tag */
+  .skill-tag {
+    @apply inline-flex items-center gap-1 bg-blue-50 text-blue-700
+           border border-blue-200 rounded-full px-3 py-1 text-xs font-medium;
+  }
+
+  /* Section header divider */
+  .section-divider {
+    @apply border-t border-blue-100 my-6;
+  }
+}
+
+/* ─── Header tricolor stripe ────────────────────────────────────── */
+.tricolor-stripe {
+  background: linear-gradient(90deg, #FF9933 33.3%, #ffffff 33.3% 66.6%, #138808 66.6%);
+  height: 4px;
+}
+
+/* ─── Animated progress bar ─────────────────────────────────────── */
+.progress-bar-fill {
+  transition: width 1s ease-out;
+}
+
+/* ─── Form step transitions ─────────────────────────────────────── */
+.step-enter {
+  animation: slideUp 0.35s ease-out;
+}
+
+/* ─── Input file upload zone ─────────────────────────────────────── */
+.upload-zone {
+  @apply border-2 border-dashed border-blue-300 rounded-xl p-8 text-center
+         hover:border-blue-500 hover:bg-blue-50 transition-all cursor-pointer;
+}
+
+/* ─── Nav active state ───────────────────────────────────────────── */
+.nav-link-active {
+  @apply bg-blue-700 text-white rounded-lg;
+}
+
+/* ─── Keyframe animations ────────────────────────────────────────── */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
