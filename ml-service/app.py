@@ -367,10 +367,134 @@ def quota_summary():
     }
 
     return jsonify({"success": True, "summary": summary})
+@app.route("/match/candidate", methods=["POST"])
+def match_candidate_v2():
+    """
+    Called by Node.js backend.
+    Body: { candidate: {...}, internships: [...], topN: 10 }
+    Returns: { matches: [...], total: N }
+    """
+    data        = request.get_json()
+    candidate   = data.get('candidate', {})
+    internships = data.get('internships', [])
+    top_n       = int(data.get('topN', 10))
 
+    if not candidate or not internships:
+        return jsonify({ 'error': 'candidate and internships required' }), 400
+
+    results = []
+    for internship in internships:
+        # Adapt internship fields to match compute_match_score format
+        adapted = {
+            'id':              str(internship.get('_id', '')),
+            'title':           internship.get('title', ''),
+            'company':         internship.get('companyId', {}).get('companyName', '') if isinstance(internship.get('companyId'), dict) else '',
+            'sector':          internship.get('sector', ''),
+            'location':        internship.get('location', {}).get('city', ''),
+            'state':           internship.get('location', {}).get('state', ''),
+            'skills_required': internship.get('skillsRequired', []),
+            'stipend':         internship.get('stipend', 0),
+            'min_percentage':  50,
+        }
+        score = compute_match_score(candidate, adapted)
+        results.append({
+            'internship': internship,
+            'matchScore': score['match_score'],
+            'breakdown': {
+                'skills':        score['breakdown']['skill_similarity'],
+                'sector':        score['breakdown']['sector_match'],
+                'location':      score['breakdown']['location_score'],
+                'qualification': 70,
+                'categoryBonus': score['breakdown']['affirmative_bonus'],
+            }
+        })
+
+    results.sort(key=lambda x: x['matchScore'], reverse=True)
+    return jsonify({ 'matches': results[:top_n], 'total': len(results) })
+
+
+@app.route("/match/internship", methods=["POST"])
+def match_internship_v2():
+    """
+    Body: { internship: {...}, candidates: [...], topN: 20 }
+    """
+    data        = request.get_json()
+    internship  = data.get('internship', {})
+    candidates  = data.get('candidates', [])
+    top_n       = int(data.get('topN', 20))
+
+    adapted = {
+        'id':              str(internship.get('_id', '')),
+        'title':           internship.get('title', ''),
+        'company':         '',
+        'sector':          internship.get('sector', ''),
+        'location':        internship.get('location', {}).get('city', ''),
+        'state':           internship.get('location', {}).get('state', ''),
+        'skills_required': internship.get('skillsRequired', []),
+        'stipend':         internship.get('stipend', 0),
+        'min_percentage':  50,
+    }
+
+    results = []
+    for candidate in candidates:
+        score = compute_match_score(candidate, adapted)
+        results.append({
+            'candidate':  candidate,
+            'matchScore': score['match_score'],
+            'breakdown': {
+                'skills':        score['breakdown']['skill_similarity'],
+                'sector':        score['breakdown']['sector_match'],
+                'location':      score['breakdown']['location_score'],
+                'qualification': 70,
+                'categoryBonus': score['breakdown']['affirmative_bonus'],
+            }
+        })
+
+    results.sort(key=lambda x: x['matchScore'], reverse=True)
+    return jsonify({ 'matches': results[:top_n], 'total': len(results) })
+
+
+@app.route("/match/bulk", methods=["POST"])
+def match_bulk():
+    """
+    Body: { candidates: [...], internships: [...] }
+    Returns full match matrix for admin.
+    """
+    data        = request.get_json()
+    candidates  = data.get('candidates', [])
+    internships = data.get('internships', [])
+
+    matrix = []
+    for candidate in candidates:
+        row = []
+        for internship in internships:
+            adapted = {
+                'id':              str(internship.get('_id', '')),
+                'title':           internship.get('title', ''),
+                'company':         '',
+                'sector':          internship.get('sector', ''),
+                'location':        internship.get('location', {}).get('city', ''),
+                'state':           internship.get('location', {}).get('state', ''),
+                'skills_required': internship.get('skillsRequired', []),
+                'stipend':         internship.get('stipend', 0),
+                'min_percentage':  50,
+            }
+            score = compute_match_score(candidate, adapted)
+            row.append({
+                'candidateId':  str(candidate.get('_id', '')),
+                'internshipId': str(internship.get('_id', '')),
+                'matchScore':   score['match_score'],
+            })
+        matrix.append(row)
+
+    return jsonify({
+        'matrix':          matrix,
+        'candidateCount':  len(candidates),
+        'internshipCount': len(internships),
+    })
 
 # ─── Run ──────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))
+    port = int(os.environ.get("PORT", 5002))
     print(f"🤖  PM Internship ML Service running on http://localhost:{port}")
     app.run(host="0.0.0.0", port=port, debug=True)

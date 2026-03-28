@@ -14,6 +14,7 @@ require('dotenv').config();
 const candidateRoutes = require('./routes/candidateRoutes');
 const companyRoutes = require('./routes/companyRoutes');      // ← ADD
 const internshipRoutes = require('./routes/internshipRoutes');   // ← ADD
+const matchRoutes = require('./routes/matchRoutes');
 
 // ─── App Init ─────────────────────────────────────────────────────────────────
 const app = express();
@@ -42,6 +43,7 @@ mongoose.connect(process.env.MONGO_URI)
 app.use('/api/candidates', candidateRoutes);
 app.use('/api/companies', companyRoutes);
 app.use('/api/internships', internshipRoutes);
+app.use('/api/match', matchRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {

@@ -7,6 +7,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { CompanyProvider } from './context/CompanyContext';
+import { MatchProvider } from './context/MatchContext';
 
 // Candidate Pages / Components
 import RegisterPage from './components/auth/RegisterPage';
@@ -76,7 +77,9 @@ const App = () => (
   <BrowserRouter>
     <AuthProvider>
       <CompanyProvider>
-        <AppRoutes />
+        <MatchProvider>
+          <AppRoutes />
+        </MatchProvider>
       </CompanyProvider>
     </AuthProvider>
   </BrowserRouter>

@@ -19,6 +19,7 @@ import {
   FiAlertCircle, FiStar, FiAward, FiInfo
 } from 'react-icons/fi';
 import EditProfileModal from './EditProfileModal';
+import MatchResults from './MatchResults';
 
 // ─── Profile Completion Bar ───────────────────────────────────────────────────
 const CompletionBar = ({ percentage }) => {
@@ -274,8 +275,8 @@ const Dashboard = () => {
           {/* ── Right Column ──────────────────────────────────── */}
           <div className="lg:col-span-2 space-y-5">
 
-            {/* Match Placeholder */}
-            <MatchPlaceholder completionPct={completionPct} />
+            {/* Match Results */}
+            <MatchResults candidateId={profile?._id || authCandidate?.id} completionPct={completionPct} />
 
             {/* Skills Card */}
             <div className="card">
@@ -354,6 +355,8 @@ const Dashboard = () => {
                 ))}
               </div>
             </div>
+
+
           </div>
         </div>
       </div>

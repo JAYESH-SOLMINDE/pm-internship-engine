@@ -74,7 +74,7 @@ npm install
 
 Create `.env` (already included):
 ```
-PORT=5000
+PORT=5001
 MONGO_URI=mongodb://localhost:27017/pm_internship_db
 JWT_SECRET=pm_internship_super_secret_key_2024
 JWT_EXPIRES_IN=7d
@@ -110,7 +110,7 @@ npm run dev        # development (nodemon)
 npm start          # production
 ```
 
-Backend runs on: `http://localhost:5000`
+Backend runs on: `http://localhost:5001`
 
 ---
 

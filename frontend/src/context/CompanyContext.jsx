@@ -7,9 +7,9 @@ const API = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
 
 export function CompanyProvider({ children }) {
   const [company, setCompany] = useState(null);
-  const [token, setToken] = useState(localStorage.getItem('companyToken') || '');
+  const [token,   setToken]   = useState(localStorage.getItem('companyToken') || '');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error,   setError]   = useState('');
 
   // Restore session on page reload
   useEffect(() => {
