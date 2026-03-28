@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useCompany } from '../context/CompanyContext';
 import PostInternshipModal from '../components/PostInternshipModal';
+import QuotaDashboard from '../components/dashboard/QuotaDashboard';
+import RunAllocation from '../components/dashboard/RunAllocation';
 
 const API = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
 
@@ -102,6 +104,11 @@ export default function CompanyDashboard() {
             </nav>
 
             <div className="max-w-6xl mx-auto px-4 py-8">
+
+                {/* Run Allocation */}
+                <div className="mb-8">
+                    <RunAllocation />
+                </div>
 
                 {/* Header */}
                 <div className="flex items-center justify-between mb-6">
@@ -233,6 +240,11 @@ export default function CompanyDashboard() {
                             </table>
                         </div>
                     )}
+                </div>
+
+                {/* Quota Dashboard */}
+                <div className="mt-8 bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+                    <QuotaDashboard />
                 </div>
             </div>
 

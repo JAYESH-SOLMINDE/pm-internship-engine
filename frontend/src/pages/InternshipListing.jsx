@@ -2,6 +2,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import QuotaPills from '../components/QuotaPills';
 
 const API = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
 
@@ -86,6 +87,11 @@ function InternshipCard({ item }) {
             )}
           </div>
         )}
+
+        {/* Quota Pills */}
+        <div onClick={(e) => e.preventDefault()}>
+          <QuotaPills internshipId={item._id} />
+        </div>
       </div>
     </Link>
   );

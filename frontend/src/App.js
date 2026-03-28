@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { CompanyProvider } from './context/CompanyContext';
 import { MatchProvider } from './context/MatchContext';
+import { AdminProvider } from './context/AdminContext';
 
 // Candidate Pages / Components
 import RegisterPage from './components/auth/RegisterPage';
@@ -24,6 +25,10 @@ import CompanyDashboard from './pages/CompanyDashboard';
 // Internship Pages
 import InternshipListing from './pages/InternshipListing';
 import InternshipDetail from './pages/InternshipDetail';
+
+// Admin Pages
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
 
 // ─── Protected Route Wrapper ──────────────────────────────────────────────────
 const ProtectedRoute = ({ children }) => {
@@ -65,6 +70,10 @@ const AppRoutes = () => {
         <Route path="/company/login" element={<CompanyLogin />} />
         <Route path="/company/dashboard" element={<CompanyDashboard />} />
 
+        {/* ── Admin Routes ── */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+
         {/* ── Catch All ── */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
@@ -75,13 +84,15 @@ const AppRoutes = () => {
 // ─── Root ─────────────────────────────────────────────────────────────────────
 const App = () => (
   <BrowserRouter>
-    <AuthProvider>
-      <CompanyProvider>
-        <MatchProvider>
-          <AppRoutes />
-        </MatchProvider>
-      </CompanyProvider>
-    </AuthProvider>
+    <AdminProvider>
+      <AuthProvider>
+        <CompanyProvider>
+          <MatchProvider>
+            <AppRoutes />
+          </MatchProvider>
+        </CompanyProvider>
+      </AuthProvider>
+    </AdminProvider>
   </BrowserRouter>
 );
 

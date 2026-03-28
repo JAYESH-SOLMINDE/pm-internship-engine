@@ -12,9 +12,12 @@ require('dotenv').config();
 
 // ─── Import Routes ────────────────────────────────────────────────────────────
 const candidateRoutes = require('./routes/candidateRoutes');
-const companyRoutes = require('./routes/companyRoutes');      // ← ADD
-const internshipRoutes = require('./routes/internshipRoutes');   // ← ADD
+const companyRoutes = require('./routes/companyRoutes');
+const internshipRoutes = require('./routes/internshipRoutes');
 const matchRoutes = require('./routes/matchRoutes');
+const quotaRoutes = require('./routes/quotaRoutes');
+const allocationRoutes = require('./routes/allocationRoutes');
+const { router: adminRoutes } = require('./routes/adminRoutes');
 
 // ─── App Init ─────────────────────────────────────────────────────────────────
 const app = express();
@@ -44,6 +47,9 @@ app.use('/api/candidates', candidateRoutes);
 app.use('/api/companies', companyRoutes);
 app.use('/api/internships', internshipRoutes);
 app.use('/api/match', matchRoutes);
+app.use('/api/quota', quotaRoutes);
+app.use('/api/allocations', allocationRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
