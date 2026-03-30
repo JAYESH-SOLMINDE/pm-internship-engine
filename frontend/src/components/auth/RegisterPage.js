@@ -12,6 +12,7 @@ import React, { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
+import AadhaarVerify from '../AadhaarVerify';
 import {
   FiUser, FiMail, FiPhone, FiLock, FiEye, FiEyeOff,
   FiUploadCloud, FiCheckCircle, FiX, FiPlus, FiAlertCircle,
@@ -103,6 +104,7 @@ const RegisterPage = () => {
   });
   const [showPass, setShowPass]   = useState(false);
   const [showConf, setShowConf]   = useState(false);
+  const [aadhaarVerified, setAadhaarVerified] = useState(false);
 
   // Step 2 — Education + Category
   const [education, setEducation] = useState({
@@ -159,6 +161,7 @@ const RegisterPage = () => {
     if (!personal.password)              return 'Password is required.';
     if (personal.password.length < 6)   return 'Password must be at least 6 characters.';
     if (personal.password !== personal.confirmPassword) return 'Passwords do not match.';
+    if (!aadhaarVerified)                return 'Please verify your Aadhaar to continue.';
     return null;
   };
 
@@ -385,6 +388,11 @@ const RegisterPage = () => {
                     {showConf ? <FiEyeOff size={16} /> : <FiEye size={16} />}
                   </button>
                 </div>
+              </div>
+
+              {/* Aadhaar Verification */}
+              <div className="mt-6 mb-4">
+                <AadhaarVerify onVerified={() => setAadhaarVerified(true)} />
               </div>
 
               <button onClick={handleNext} disabled={loading}

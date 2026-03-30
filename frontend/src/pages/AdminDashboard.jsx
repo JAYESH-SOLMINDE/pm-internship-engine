@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAdmin } from '../context/AdminContext';
 import axios from 'axios';
+import BiasAudit from '../components/dashboard/BiasAudit';
 import {
     BarChart, Bar, PieChart, Pie, Cell, LineChart, Line,
     XAxis, YAxis, Tooltip, ResponsiveContainer, Legend,
@@ -131,7 +132,7 @@ const AdminDashboard = () => {
         window.open(`${API}/export-csv?token=${authHeaders().headers.Authorization.split(' ')[1]}`);
     };
 
-    const TABS = ['overview', 'allocations', 'quota', 'charts', 'capacity'];
+    const TABS = ['overview', 'allocations', 'quota', 'charts', 'capacity', 'fairness'];
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -163,7 +164,8 @@ const AdminDashboard = () => {
                             className={`py-3 text-sm font-medium border-b-2 capitalize transition-colors ${tab === t ? 'border-blue-600 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700'
                                 }`}>
                             {t === 'overview' ? '📊 Overview' : t === 'allocations' ? '📋 Allocations' :
-                                t === 'quota' ? '⚖️ Quota' : t === 'charts' ? '📈 Charts' : '🏢 Capacity'}
+                                t === 'quota' ? '⚖️ Quota' : t === 'charts' ? '📈 Charts' : 
+                                t === 'capacity' ? '🏢 Capacity' : '⚖️ Fairness'}
                         </button>
                     ))}
                 </div>
@@ -420,6 +422,10 @@ const AdminDashboard = () => {
                         </table>
                     </div>
                 )}
+
+                {/* ── FAIRNESS TAB ── */}
+                {tab === 'fairness' && <BiasAudit authHeaders={authHeaders} />}
+
             </div>
         </div>
     );
